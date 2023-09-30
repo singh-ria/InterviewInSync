@@ -15,7 +15,8 @@ import { ROUTE } from "../constants/routes";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<ScheduleInterview />} />
+      <Route path="/" element={<Login />} />
+      <Route path="schedule-interview" element={<ScheduleInterview />} />
       <Route path={ROUTE.APPLICATION_STATUS} element={<ApplicationStatus />} />
       <Route path={ROUTE.UPLOAD_DOCUMENTS} element={<UploadDocuments />} />
       <Route path={ROUTE.CANDIDATE_PANEL} element={<CandidatePanel />} />
