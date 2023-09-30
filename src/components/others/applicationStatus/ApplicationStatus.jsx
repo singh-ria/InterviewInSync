@@ -11,6 +11,7 @@ import {
 import React from "react";
 import { CANDIDATE_CONFIGS } from "configs/index";
 import { useNavigate } from "react-router-dom";
+import Header from "components/common/Header/Header";
 import { PROGRESS_STYLES } from "./applicationStatus.styles";
 
 export default function ApplicationStatus() {
@@ -23,6 +24,8 @@ export default function ApplicationStatus() {
   };
   return (
     <Box>
+      <Header />
+
       <Typography
         variant="h6"
         sx={{ ml: "19rem", mt: "2rem", ...PROGRESS_STYLES.primaryTextColor }}>

@@ -1,6 +1,7 @@
 import { Box, Button, Card, CardContent, Typography } from "@mui/material";
 import React, { useRef } from "react";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import Header from "components/common/Header/Header";
 import { PROGRESS_STYLES } from "../applicationStatus/applicationStatus.styles";
 
 export default function UploadDocuments() {
@@ -21,6 +22,8 @@ export default function UploadDocuments() {
 
   return (
     <Box>
+      <Header />
+
       <Typography
         variant="h6"
         sx={{ ml: "17rem", mt: "2rem", ...PROGRESS_STYLES.primaryTextColor }}>
