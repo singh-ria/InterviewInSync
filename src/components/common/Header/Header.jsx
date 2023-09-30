@@ -8,7 +8,7 @@ import { STYLES } from "./header.styles";
 function Header({ candidateName }) {
   return (
     <Stack direction="row" sx={STYLES.stack}>
-      <Typography sx={STYLES.logoText}>{logo || "LOGO"}</Typography>
+      <img alt="logo" style={{ height: "4rem", paddingLeft: "1rem" }} src={logo} />
       <Stack direction="row">
         <Typography sx={STYLES.candidateName}>{candidateName || "Candidate Name"}</Typography>
         <Stack sx={STYLES.avatarStack}>
