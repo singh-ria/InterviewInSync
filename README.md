@@ -1,5 +1,7 @@
 # InterviewInSync
 
+## Deployed Link: http://tgs-hackathon.s3-website.ap-south-1.amazonaws.com/
+ 
 ## Project Overview
 
 InterviewInSync is an interview scheduling application that simplifies the interview process for HR professionals, candidates, and interviewers. The application is built with a modern tech stack, including React for the frontend, Zustand for state management, AWS DynamoDB and Lambda for the backend, AWS API Gateway for API management, CloudWatch for monitoring, and Code Pipeline for continuous deployment.
