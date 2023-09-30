@@ -4,7 +4,7 @@ import { CANDIDATE_CONFIGS } from "configs";
 import { useNavigate } from "react-router-dom";
 import GroupIcon from "@mui/icons-material/Group";
 import InputLabel from "@mui/material/InputLabel";
-import { extractStartTime, formatDate } from "utils";
+import { extractStartTime } from "utils";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
@@ -20,6 +20,7 @@ import {
   Stack,
   Typography
 } from "@mui/material";
+import dayjs from "dayjs";
 
 import { useApiStore } from "store/api/timeSlots";
 import Header from "components/common/Header/Header";
@@ -43,13 +44,12 @@ const TimeSlotButton = ({ timeSlot, selectedSlot, handleSlotClick }) => (
 export default function ScheduleInterview({ titleName }) {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const navigate = useNavigate();
-  const { interviewSlots, fetchData } = useApiStore();
+  const { fetchData } = useApiStore();
+  const [selectedDate, setSelectedDate] = useState(dayjs("10-10-2023"));
 
   useEffect(() => {
     fetchData("0dfbdf67-5091-44d1-a5a5-5d0d753a08bf");
   }, [fetchData]);
-
-  console.warn({ interviewSlots });
 
   const handleSlotClick = (slot) => {
     setSelectedSlot(slot);
@@ -126,7 +126,10 @@ export default function ScheduleInterview({ titleName }) {
             <Grid container spacing={3} sx={{ mt: "1rem" }}>
               <Grid item xs={6}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DateCalendar className="my-custom-calendar" />
+                  <DateCalendar
+                    value={selectedDate}
+                    onChange={(newVal) => setSelectedDate(newVal)}
+                  />
                 </LocalizationProvider>
               </Grid>
 
@@ -135,7 +138,7 @@ export default function ScheduleInterview({ titleName }) {
                   {interviewData.map((interview) => (
                     <Box key={interview.slotId}>
                       <Typography variant="h6" sx={{ ...CANDIDATE_STYLES.dateText }}>
-                        {formatDate(interview.interviewDate)}
+                        {selectedDate.format("ll")}
                       </Typography>
                       <Box sx={{ display: "flex", flexWrap: "wrap" }}>
                         {interview.timeslots.map((timeSlot) => (

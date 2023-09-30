@@ -13,12 +13,7 @@ export default function UploadDocuments() {
     }
   };
 
-  const handleFileSelect = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      console.warn("Selected file:", selectedFile);
-    }
-  };
+  const handleFileSelect = () => () => {};
 
   return (
     <Box>
