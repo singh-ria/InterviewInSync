@@ -22,6 +22,7 @@ import {
 } from "@mui/material";
 
 import { useApiStore } from "store/api/timeSlots";
+import Header from "components/common/Header/Header";
 import { ROUTE } from "../../../constants/routes";
 import { CANDIDATE_STYLES } from "./scheduleInterview.styles";
 
@@ -87,6 +88,8 @@ export default function ScheduleInterview({ titleName }) {
 
   return (
     <Box>
+      <Header />
+
       <Stack
         direction="row"
         sx={{ width: "1100px", alignItems: "center", mt: "1.5rem", mb: "2rem", ml: "7rem" }}>
