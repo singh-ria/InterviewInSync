@@ -7,17 +7,14 @@ export default function UploadDocuments() {
   const fileInputRef = useRef(null);
 
   const handleUploadClick = () => {
-    // Trigger a click on the hidden file input element
     if (fileInputRef.current) {
       fileInputRef.current.click();
     }
   };
 
   const handleFileSelect = (e) => {
-    // Handle the selected file here, you can use e.target.files
     const selectedFile = e.target.files[0];
     if (selectedFile) {
-      // Do something with the selected file, e.g., upload it
       console.warn("Selected file:", selectedFile);
     }
   };
